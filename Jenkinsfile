@@ -24,5 +24,10 @@ pipeline {
                 sh './mvnw deploy' 
             }
         }
+        stage('Slack Notification') {
+            steps {
+                slackSend 'Build ${BUILD_STATUS} - ${env.JOB_NAME} ${env.BUILD_NUMBER}'
+            }
+        }
     }
 }
