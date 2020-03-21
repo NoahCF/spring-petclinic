@@ -22,10 +22,8 @@ pipeline {
             }
             steps {
                 sh './mvnw deploy' 
+                slackSend "Build Succeeded - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
             }
-        }
-        stage('Slack Notification') {
-            slackSend currentBuild.result
         }
     }
 }
