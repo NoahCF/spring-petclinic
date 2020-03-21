@@ -24,5 +24,8 @@ pipeline {
                 sh './mvnw deploy' 
             }
         }
+        stage('Slack Notification') {
+            slackSend(notifyBuild(currentBuild.result))
+        }
     }
 }
