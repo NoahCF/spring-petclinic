@@ -16,13 +16,6 @@ pipeline {
                 sh './mvnw package' 
             }
         }
-        stage('Deploy') {
-            when {
-                branch 'master'
-            }
-            steps {
-                sh './mvnw deploy' 
-            }
-        }
+       
     }
 }
