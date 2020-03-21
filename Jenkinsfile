@@ -25,7 +25,7 @@ pipeline {
             }
         }
         stage('Slack Notification') {
-            slackSend(notifyBuild(currentBuild.result))
+            slackSend currentBuild.result
         }
     }
 }
